@@ -30,12 +30,21 @@
                                     <constraint firstAttribute="height" constant="48" id="rcn-DE-LVJ"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkr-jD-LY8">
+                                <rect key="frame" x="144" y="261" width="87" height="30"/>
+                                <state key="normal" title="clear all tags"/>
+                                <connections>
+                                    <action selector="clearAllTags:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MnR-Rf-Hyq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="K0q-hs-3Bd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="2ym-Ry-WjJ"/>
+                            <constraint firstItem="fkr-jD-LY8" firstAttribute="top" secondItem="K0q-hs-3Bd" secondAttribute="bottom" constant="80" id="3k4-rE-UHy"/>
                             <constraint firstItem="o5s-st-1mv" firstAttribute="trailing" secondItem="K0q-hs-3Bd" secondAttribute="trailing" constant="16" id="6Jm-4k-sbL"/>
                             <constraint firstItem="KtN-yy-hLk" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="80" id="90S-jc-2IE"/>
+                            <constraint firstItem="fkr-jD-LY8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Eep-yY-hkJ"/>
                             <constraint firstItem="KtN-yy-hLk" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="mgG-TD-gfx"/>
                             <constraint firstItem="K0q-hs-3Bd" firstAttribute="top" secondItem="KtN-yy-hLk" secondAttribute="bottom" constant="32" id="zOg-4b-kAx"/>
                         </constraints>

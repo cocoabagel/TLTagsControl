@@ -42,4 +42,9 @@
     NSLog(@"Tag \"%@\" was tapped", tagsControl.tags[index]);
 }
 
+- (IBAction)clearAllTags:(id)sender {
+    [_defaultEditingTagControl.tags removeAllObjects];
+    [_defaultEditingTagControl reloadTagSubviews];
+}
+
 @end
