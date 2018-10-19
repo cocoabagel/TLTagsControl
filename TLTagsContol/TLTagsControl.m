@@ -78,6 +78,7 @@
     tagInputField_.placeholder = @"tag";
     tagInputField_.autocorrectionType = UITextAutocorrectionTypeNo;
     tagInputField_.font = _font;
+    tagInputField_.clearButtonMode = UITextFieldViewModeAlways;
     
     if (_mode == TLTagsControlModeEdit) {
         [self addSubview:tagInputField_];
@@ -129,10 +130,10 @@
             frame.origin.x = view.frame.origin.x + view.frame.size.width + 4;
         }
         
-        if (self.frame.size.width - tagInputField_.frame.origin.x > 100) {
+        if (self.frame.size.width - tagInputField_.frame.origin.x > 160) {
             frame.size.width = self.frame.size.width - frame.origin.x - 12;
         } else {
-            frame.size.width = 140;
+            frame.size.width = 160;
         }
         tagInputField_.frame = frame;
     } else {
@@ -302,6 +303,13 @@
 }
 
 #pragma mark - textfield stuff
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    textField.text = @"";
+    [_tags removeAllObjects];
+    [self reloadTagSubviews];
+    return YES;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField.text.length > 0) {
