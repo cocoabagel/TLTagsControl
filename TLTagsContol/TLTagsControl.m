@@ -316,37 +316,37 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *resultingString;
     NSString *text = textField.text;
+    NSString *delimiters = @" 　";
     
-    
-    if (string.length == 1 && [string rangeOfCharacterFromSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]].location != NSNotFound) {
-        return NO;
-    } else {
+    if ([string rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:delimiters]].location != NSNotFound) {
+      
         if (!text || [text isEqualToString:@""]) {
             resultingString = string;
         } else {
             if (range.location + range.length > text.length) {
                 range.length = text.length - range.location;
             }
-            
+
             resultingString = [textField.text stringByReplacingCharactersInRange:range
                                                                       withString:string];
         }
-        
-        NSArray *components = [resultingString componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]];
-        
-        if (components.count > 2) {
+    
+        NSArray *components = [resultingString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:delimiters]];
+
+        if (components.count > 1) {
             for (NSString *component in components) {
-                if (component.length > 0 && [component rangeOfCharacterFromSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]].location == NSNotFound) {
-                    [self addTag:component];
+                if (component.length > 0 && [component rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:delimiters]].location == NSNotFound) {
+                    NSString *tag = component;
+                    [self addTag:tag];
+                    textField.text = @"";
                     break;
                 }
             }
             
             return NO;
         }
-        
-        return YES;
     }
+    return YES;
 }
 
 #pragma mark - other
