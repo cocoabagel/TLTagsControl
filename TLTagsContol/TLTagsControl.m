@@ -132,7 +132,7 @@
         if (self.frame.size.width - tagInputField_.frame.origin.x > 100) {
             frame.size.width = self.frame.size.width - frame.origin.x - 12;
         } else {
-            frame.size.width = 100;
+            frame.size.width = 140;
         }
         tagInputField_.frame = frame;
     } else {
@@ -225,7 +225,7 @@
             CGRect buttonFrame = deleteTagButton.frame;
             [deleteTagButton.titleLabel setFont:self.font];
             [deleteTagButton addTarget:self action:@selector(deleteTagButton:) forControlEvents:UIControlEventTouchUpInside];
-            buttonFrame.size.width = deleteTagButton.frame.size.height;
+            buttonFrame.size.width = deleteTagButton.frame.size.height / 2;
             buttonFrame.size.height = tagInputField_.frame.size.height;
             [deleteTagButton setTag:tagSubviews_.count];
             [deleteTagButton setTitle:@"✕" forState:UIControlStateNormal];
